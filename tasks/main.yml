@@ -1,0 +1,35 @@
+---
+- name: Disable custom IP config overwrite by cloud agent
+  copy:
+    src: files/98-diable-network.cfg
+    dest: "{{ nicDisableAutoPath }}"
+
+- name: Configure the eth0 network interface
+  template:
+    src: templates/ifcfg-eth0.j2
+    dest: "{{ nicConfigPath }}"
+
+- name: Create a default route for eth0
+  copy:
+    src: files/route-eth0
+    dest: "{{ nicDefaultRoutePath }}"
+
+- name: Restart networking
+  systemd:
+    name: network
+    state: restarted
+  async: 1337
+  poll: 0
+
+- name: Wait for target to come back online
+  wait_for_connection:
+    delay: 3
+    timeout: 300
+
+- name: Check what DNS servers are configured
+  shell: cat /etc/resolv.conf
+  register: resolv
+
+- name: Print current resolv.conf
+  debug:
+    msg: "{{ resolv.stdout }}"

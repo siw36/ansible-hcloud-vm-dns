@@ -1,0 +1,27 @@
+BOOTPROTO=static
+DEVICE=eth0
+HWADDR={{ hostvars[inventory_hostname]['ansible_default_ipv4']['macaddress'] }}
+ONBOOT=yes
+TYPE=Ethernet
+USERCTL=no
+IPADDR={{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}
+NETMASK=255.255.255.255
+{% if dns1 is defined %}
+DNS1={{ dns1 }}
+{% else %}
+DNS1=213.133.98.98
+{% endif %}
+{% if dns1 is defined %}
+DNS2={{ dns2 }}
+{% else %}
+DNS2=213.133.99.99
+{% endif %}
+{% if dns3 is defined %}
+DNS2={{ dns3 }}
+{% else %}
+DNS2=1.1.1.1
+{% endif %}
+IPV6ADDR={{ hostvars[inventory_hostname]['ansible_default_ipv6']['address'] }}
+IPV6INIT=yes
+IPV6_DEFAULTGW=fe80::1%eth0
+IPV6_DEFAULTDEV=eth0

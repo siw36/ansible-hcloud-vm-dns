@@ -1,0 +1,25 @@
+galaxy_info:
+  author: Robin 'siw36' Klussmann
+  description: Ansible role to configure DNS servers for a hcloud VM
+  company: replicas.io
+
+  license: GPL-3.0-only
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+
+  galaxy_tags:
+    - hcloud
+    - hetzner
+    - dns
+    - nameserver
+    - custom
+
+dependencies: []

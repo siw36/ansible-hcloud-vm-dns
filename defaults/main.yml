@@ -1,0 +1,4 @@
+---
+nicDisableAutoPath: /etc/cloud/cloud.cfg.d/98-disable-network.cfg
+nicConfigPath: /etc/sysconfig/network-scripts/ifcfg-eth0
+nicDefaultRoutePath: /etc/sysconfig/network-scripts/route-eth0
