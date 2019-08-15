@@ -13,8 +13,8 @@ Role Variables
 --------------
 
 - `dns1`: the first DNS server. Default: `213.133.98.98`
-- `dns2`: the second DNS server. Default: `213.133.98.99`
-- `dns3`: the third DNS server. Default: `1.1.1.1`
+- `dns2`: the second DNS server. Default: gets omitted
+- `dns3`: the third DNS server. Default: gets omitted
 
 Get this role
 ------------
