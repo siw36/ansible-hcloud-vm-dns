@@ -1,7 +1,7 @@
 ---
 - name: Disable custom IP config overwrite by cloud agent
   copy:
-    src: files/98-diable-network.cfg
+    src: 98-disable-network.cfg
     dest: "{{ nicDisableAutoPath }}"
 
 - name: Configure the eth0 network interface
@@ -11,7 +11,7 @@
 
 - name: Create a default route for eth0
   copy:
-    src: files/route-eth0
+    src: route-eth0
     dest: "{{ nicDefaultRoutePath }}"
 
 - name: Restart networking
